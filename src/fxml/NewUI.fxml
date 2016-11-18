@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Label?>
+
+<AnchorPane fx:id="MainPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerClass">
+   <children>
+      <SplitPane dividerPositions="0.5" layoutY="4.0" orientation="VERTICAL" prefHeight="700.0" prefWidth="1300.0">
+        <items>
+          <AnchorPane fx:id="APtop" minHeight="0.0" minWidth="0.0">
+               <children>
+                  <ImageView fx:id="CamPic" fitHeight="100.0" fitWidth="200.0" layoutX="810.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../fxmlimage/View_from_connors_hill_panorama.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="TempDisplay" layoutX="672.0" layoutY="199.0" text="Current Temperature">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label fx:id="SpeedDisplay" layoutX="1076.0" layoutY="199.0" text="Current Speed">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label fx:id="tempview" layoutX="664.0" layoutY="251.0" prefHeight="17.0" prefWidth="160.0" />
+                  <Label fx:id="speedview" layoutX="1087.0" layoutY="251.0" prefHeight="17.0" prefWidth="55.0" />
+                  <ImageView fx:id="NavArr" fitHeight="167.0" fitWidth="167.0" layoutX="84.0" layoutY="77.0">
+                     <image>
+                        <Image url="@../fxmlimage/gps-navi-arrow-512.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="113.0" layoutY="278.0" text="Navigation Arrow">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <AnchorPane fx:id="ancpane" layoutX="272.0" layoutY="3.0" prefHeight="346.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="RobotPic" fitHeight="129.0" fitWidth="91.0" layoutX="55.0" layoutY="162.0">
+                           <image>
+                              <Image url="@../fxmlrobot/robotclosed0.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+          <AnchorPane fx:id="Apdown" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <AnchorPane fx:id="SliderAp" layoutX="684.0" layoutY="75.0" prefHeight="268.0" prefWidth="239.0">
+                     <children>
+                        <Slider fx:id="ArmSlider" layoutX="50.0" layoutY="27.0" max="90.0" />
+                        <Slider fx:id="RotSlider" layoutX="50.0" layoutY="178.0" max="360.0" />
+                        <Label fx:id="DirLbl" layoutX="67.0" layoutY="134.0" text="Direction Control">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
+                        <Label fx:id="RotLabl" layoutX="13.0" layoutY="212.0" text="Slide to turn Arrow from 0 to 360 Degrees" />
+                        <Label fx:id="ArmLbl" layoutX="14.0" layoutY="53.0" text="Slide to move arm from 0 to 90 degrees" />
+                     </children>
+                  </AnchorPane>
+                  <Label fx:id="ArmmmtLbl" layoutX="755.0" layoutY="41.0" text="Arm Movement">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <AnchorPane fx:id="cameraAp" layoutX="64.0" layoutY="38.0" prefHeight="305.0" prefWidth="211.0">
+                     <children>
+                        <Button fx:id="Cambtn" layoutX="66.0" layoutY="51.0" mnemonicParsing="false" onAction="#onClickCamera">
+                           <graphic>
+                              <ImageView fx:id="camview" fitHeight="66.0" fitWidth="52.0">
+                                 <image>
+                                    <Image url="@../fxmlimage/unnamed.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>                        
+                        <Slider fx:id="CamSlider" blockIncrement="1.0" layoutX="30.0" layoutY="220.0" max="4" min="1.0" />
+                        <Label fx:id="Zctrl" layoutX="54.0" layoutY="177.0" text="Zoom Control">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
+                        <Label fx:id="Zin" layoutX="141.0" layoutY="255.0" text="Zoom In" />
+                        <Label fx:id="Zout" layoutX="14.0" layoutY="255.0" text="Zoom Out" />
+                        <Label fx:id="ViewLbl" layoutX="56.0" layoutY="-8.0" text="Camera Controls">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
+                        <Label fx:id="camstatus" layoutX="88.0" layoutY="136.0" text="ON" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="clawAp" layoutX="408.0" layoutY="64.0" prefHeight="179.0" prefWidth="204.0">
+                     <children>
+                        <Button fx:id="ClawOpenbtn" layoutX="14.0" layoutY="75.0" mnemonicParsing="false" onAction="#OpenclawAction" prefHeight="42.0" prefWidth="83.0" text="Open" />
+                        <Button fx:id="ClawClosebtn" layoutX="119.0" layoutY="75.0" mnemonicParsing="false" onAction="#CloseclawAction" prefHeight="42.0" prefWidth="76.0" text="Close" />
+                        <Label fx:id="ClawLbl" layoutX="59.0" layoutY="-10.0" text="Claw Controls">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
+                        <Label fx:id="TempLabl" layoutX="35.0" layoutY="163.0" text="Temperature Controls">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
+                     </children>
+                  </AnchorPane>
+                  <Button fx:id="Tempbtn" layoutX="460.0" layoutY="273.0" mnemonicParsing="false" onAction="#handleTempButtonAction" prefHeight="36.0" prefWidth="101.0" text="Temperature" />
+                  <AnchorPane fx:id="MoveAp" layoutX="994.0" layoutY="42.0" prefHeight="179.0" prefWidth="188.0">
+                     <children>
+                        <Button fx:id="Forwardbtn" layoutX="107.0" layoutY="36.0" mnemonicParsing="false" onAction="#onfrwdbtnclick" prefHeight="66.0" prefWidth="55.0">
+                           <graphic>
+                              <ImageView fx:id="forwardbtnview" fitHeight="51.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../fxmlimage/arrow-blue-outline-top.jpg" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="Backwardbtn" layoutX="107.0" layoutY="103.0" mnemonicParsing="false" onAction="#onbkwdbtnclick" prefHeight="66.0" prefWidth="55.0">
+                           <graphic>
+                              <ImageView fx:id="backwardbtnview" fitHeight="55.0" fitWidth="36.0">
+                                 <image>
+                                    <Image url="@../fxmlimage/arrow-blue-outline-bottom.jpg" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="SpdSlowbtn" layoutX="45.0" layoutY="238.0" mnemonicParsing="false" onAction="#slowbtnclick" text="Slow" />
+                        <Button fx:id="SpdMdmbtn" layoutX="103.0" layoutY="238.0" mnemonicParsing="false" onAction="#mdmbtnclick" text="Medium" />
+                        <Button fx:id="SpdFastbtn" layoutX="179.0" layoutY="238.0" mnemonicParsing="false" onAction="#fastbtnclick" text="Fast" />
+                        <Label fx:id="SpdLbl" layoutX="89.0" layoutY="196.0" text="Speed Control">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
+                        <Button fx:id="Stopbtn" layoutX="25.0" layoutY="103.0" mnemonicParsing="false" onAction="#stopbtnclick" text="Stop" />
+                        <Label fx:id="MvmtLbl" layoutX="77.0" layoutY="-12.0" text="Movement Control">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
